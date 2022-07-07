@@ -1,0 +1,150 @@
+<table class="table m-2">
+  <thead>
+    <tr class="bg-dark text-light text-center">
+      <th scope="col">No.</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">catId</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Img</th>
+      <th scope="col">Count</th>
+      <th scope="col">More Details</th>
+      <th scope="col">Cart</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr class="text-center" *ngFor="let prd of prdListOfCat ;index as i ;trackBy:trackbyfunc"
+      [ngStyle]="{'background-color': prd.Quantity==1 ? 'yellow' : 'white' , 'color':prd.Quantity==1 ? 'red' : 'Black','display':prd.Quantity==0? 'none':'fixed'}">
+
+      <td>{{i+1}}</td>
+      <td>{{prd.name}}</td>
+      <td>{{prd.price | currency : 'USD' : 'symbol'}}</td>
+      <td>{{prd.CateogryID}}</td>
+      <td>{{prd.Quantity}}</td>
+      <td><img [src]="prd.productImage" alt="" style="width: 100px;"></td>
+      <td><input #itemCount class="form-control" type="number"></td>
+      <!---------------------------------------day4------------------------------------->
+      <td><button class="btn btn-secondary" (click)="productDetails(prd.Id)">Details</button></td>
+
+    </tr>
+  </tbody>
+</table>
+<hr>
+<hr>
+<div>
+  <input #itemCount class="form-control" type="number" placeholder="Enter Your nationalId" [(ngModel)]="itemCount.value"
+    maxlength="14">
+  <h3 style="color: teal;">National Id details : {{ itemCount.value | nationalId| date:'longDate' }}</h3>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--Day2-->
+<!-- <h3>Order Total Price : {{orderTotalPrice}}</h3> -->
+
+<!-- <div ShadowDirective customColor="red" customColor3="yellow" class="card" style="width: 18rem;">
+  <img src="assets/phone.png" class="card-img-top" alt="">
+  <div class="card-body">
+    <h5 class="card-title text-end">Iphone</h5>
+    <p class="card-text text-end">Not Rated</p>
+    <p class="card-text text-end">20,000 EGP</p>
+    <a class="btn btn-danger d-flex justify-content-center">Add To Cart</a>
+  </div>
+</div>
+<br>
+<hr>
+<div>
+  <input #itemCount class="form-control" type="number" [(ngModel)]="itemCount.value">
+  <h3 style="color: teal;">Credit Card Num : {{ itemCount.value | customPipe }}</h3>
+  Custom Pipe
+</div> -->
+
+<!-- <div>
+  [To be removed for test: ]
+  {{selectCatId}}
+</div>
+<div>
+  <h3> Today's Date: {{date | date :'longDate'}} </h3>
+  Built in pipe
+</div> -->

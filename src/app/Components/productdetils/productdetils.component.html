@@ -1,0 +1,26 @@
+<div class="card" style="width: 18rem;">
+  <img [src]="prd?.productImage" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p class="card-text">{{prd?.name}}</p>
+    <p class="card-text">{{prd?.price}}$</p>
+    <p class="card-text">{{prd?.Quantity}}</p>
+  </div>
+  <div class="btn-group">
+    <button (click)="goprev()" class="btn btn-danger" [disabled]="currentPrdId==prdIdListdetails[0]">Previous</button>
+    <button (click)="Back()" class="btn btn-success">Back</button>
+    <button (click)="Next()" class="btn btn-primary"
+      [disabled]="currentPrdId==prdIdListdetails[prdIdListdetails.length -1]">Next</button>
+
+  </div>
+</div>
+<div>
+  <label for="search">Search Product</label>
+  <input type="text" class="form-control btn-light" placeholder="Search" name="search" id="search" #prdinput>
+  <button (click)="search(prdinput.value)">Search</button>
+</div>
+
+
+<!--
+<button (click)="Back()" class="btn btn-success">Back</button>
+<button (click)="Next()" class="btn btn-primary">Next</button> -->

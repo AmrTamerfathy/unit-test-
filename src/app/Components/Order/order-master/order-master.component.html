@@ -1,0 +1,45 @@
+<h2>Your Order</h2>
+<div class="mb-3">
+  <label for="" class="form-label">Category</label>
+  <select class="form-control" name="Cat" id="prdCat" [(ngModel)]="selectCatId">
+    <option *ngFor="let cat of catlist" [value]="cat.ID">{{cat.name}}</option>
+  </select>
+</div>
+<hr>
+
+<div>
+  <!-- <app-products [sentCatId]="selectCatId" (totalPriceChanged)="onTotalPriceChanged($event)"></app-products> -->
+  <app-products [sentCatId]="selectCatId" (AddProduct)="cart($event)"></app-products>
+
+</div>
+<hr>
+<h2>Your Cart </h2>
+<table class="table m-2">
+  <thead>
+    <tr class="bg-dark text-light text-center">
+      <th scope="col">No.</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">catId</th>
+      <th scope="col">Img</th>
+      <th scope="col">count</th>
+      <th scope="col">Buy Items</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr class="text-center" *ngFor="let cart of cartList ;index as i">
+
+      <td>{{i+1}}</td>
+      <td>{{cart.name}}</td>
+      <td>{{cart.price | currency : 'USD' : 'symbol'}}</td>
+      <td>{{cart.CateogryID}}</td>
+      <td><img [src]="cart.productImage" alt="" style="width: 100px;"></td>
+      <td><input #itemCount class="form-control" type="number"></td>
+      <td><button class="btn btn-primary" (click)="price(cart.price, itemCount.value)">buy</button></td>
+
+    </tr>
+  </tbody>
+  <h3>Order Total Price : {{TotalPriceCart}}$</h3>
